@@ -60,10 +60,10 @@ return new class extends Migration
                 ->constrained('projects')
                 ->cascadeOnDelete();
 
-            $table->string('warehouse');
-            $table->string('zone')->nullable();
-            $table->string('rack')->nullable();
-            $table->string('location_code');
+            $table->string('warehouse', 100);
+            $table->string('zone', 50)->nullable();
+            $table->string('rack', 50)->nullable();
+            $table->string('location_code', 100);
 
             $table->decimal('capacity', 12, 2)->default(0);
             $table->decimal('occupied', 12, 2)->default(0);
