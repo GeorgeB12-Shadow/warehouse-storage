@@ -8,30 +8,12 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
-            $table->id();
-
-            $table->foreignId('customer_id')
-                ->constrained('customers')
-                ->cascadeOnDelete();
-
-            $table->string('name', 150);
-            $table->string('code', 50)->nullable();
-            $table->text('description')->nullable();
-
-            $table->string('status', 30)->default('active');
-
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
-
-            $table->timestamps();
-
-            $table->index(['customer_id', 'status']);
-        });
+        // The projects table already exists in the production database.
+        // This migration is intentionally a no-op.
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        // Do not delete the existing production table.
     }
 };
