@@ -19,7 +19,7 @@ class StorageLocationController extends Controller
 
     public function create()
     {
-        $projects = Project::orderBy('name')->get();
+        $projects = Project::orderBy('project_name')->get();
 
         return view('storage_locations.create', compact('projects'));
     }
